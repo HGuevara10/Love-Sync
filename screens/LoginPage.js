@@ -17,7 +17,7 @@ export default function LoginPage() {
   const handleUserAndPassInput = () => {
     if (enteredUsername.length === 0 || enteredPassword.length === 0) {
       Alert.alert(
-        'Error',
+        'Invalid Username or Password',
         'You must enter both a username and password.',
         [{text: 'Okay', style: 'blue', onPress: resetInputHandler}]
       )
