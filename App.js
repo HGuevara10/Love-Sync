@@ -1,11 +1,19 @@
 import { StyleSheet, View, ImageBackground, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+
 import Colors from './constants/colors';
-import LoginPage from './screens/LoginPage';
+import LoginPage from './screens/Login';
+import SignUp from './screens/SignUp';
+
 import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
-  let currentScreen = <LoginPage />;
+
+  let currentScreen = <SignUp />;
+
+  function MoveToSignUp() {
+    currentScreen = <SignUp />;
+  }
 
   return (
     <>

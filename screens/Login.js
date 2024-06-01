@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Alert } from 'react-native';
+import { Ionicons  } from '@expo/vector-icons';
+
 import Colors from '../constants/colors';
 import CustomButton from '../components/ui/CustomButton';
-import { Ionicons  } from '@expo/vector-icons';
+import SignUp from '../screens/SignUp';
 
 export default function LoginPage() {
 
@@ -39,7 +41,7 @@ export default function LoginPage() {
       <Text style={styles.titleText}>Login</Text>
 
       <View style={styles.textContainerUsername}>
-        <Ionicons name="person-outline" size={24} style={styles.icons} />
+        <Ionicons name="person-outline" size={24} style={styles.icons}/>
         <TextInput
           style={styles.input}
           placeholder="Username"
@@ -49,7 +51,7 @@ export default function LoginPage() {
       </View>
 
       <View style={styles.textContainerPassword}>
-        <Ionicons name="lock-closed-outline" size={24} style={styles.icons} />
+        <Ionicons name="lock-closed-outline" size={24} style={styles.icons}/>
         <TextInput
           style={styles.input}
           placeholder="Password"
@@ -124,6 +126,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 36,
     paddingBottom: 12,
+    fontWeight: '600'
   },
   buttonContainer: {
     width: 150,
