@@ -4,12 +4,16 @@ import { Ionicons  } from '@expo/vector-icons';
 
 import Colors from '../constants/colors';
 import CustomButton from '../components/ui/CustomButton';
-import SignUp from '../screens/SignUp';
 
 export default function LoginPage() {
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const [enteredUsername, setEnteredUsername] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(prevState => !prevState);
+  };
 
   function resetInputHandler() {
     setEnteredUsername('');
@@ -57,8 +61,18 @@ export default function LoginPage() {
           placeholder="Password"
           value={enteredPassword}
           onChangeText={(text) => setEnteredPassword(text)}
-          secureTextEntry={true}
+          secureTextEntry={isPasswordVisible}
         />
+
+        <View style={ViewStyles.showAndHidePasswordView}>
+          <CustomButton onPress={togglePasswordVisibility}>
+            <Ionicons 
+              name={isPasswordVisible ? "eye-off-outline" : "eye-outline"} 
+              size={24} 
+              color="black" 
+            />
+          </CustomButton>
+        </View>
       </View>
 
       <TouchableOpacity onPress={handleForgotPassword} style={styles.forgotPassword}>
@@ -158,5 +172,34 @@ const styles = StyleSheet.create({
     color: '#ff4800',
     fontWeight: 'bold',
     marginBottom: 5,
+  },
+});
+
+const ViewStyles = StyleSheet.create({
+  totalView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  emailView: {
+    backgroundColor: 'white',
+    borderRadius: 8,
+    width: 350,
+    height: 50,
+    paddingStart: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  passwordView: {
+    backgroundColor: 'white',
+    borderRadius: 8,
+    width: 350,
+    height: 50,
+    paddingStart: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+    justifyContent: 'space-between',
   },
 });
